@@ -30,7 +30,7 @@ public class ListContactsBean {
     }
 
     public void delete(Integer id){
-        deleteUseCase.execute(id);
+        this.deleteUseCase.execute(id);
         iniciate();
     }
 
