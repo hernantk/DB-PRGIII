@@ -19,7 +19,7 @@ public class ContactDao {
     public void save(Contact contact ){
         try {
             var connection = connect();
-            var ps = connection.prepareStatement("INSERT INTO contats(nome, email) VALUES (?,?)");
+            var ps = connection.prepareStatement("insert into contats(nome, email) values (?,?)");
             ps.setString(1,contact.getNome());
             ps.setString(2,contact.getEmail());
 
@@ -35,11 +35,11 @@ public class ContactDao {
         try {
             var connection= connect();
             var st = connection.createStatement();
-            var result=st.executeQuery  ("SELECT * FROM contats");
+            var result= st.executeQuery  ("select * from contats");
 
             while (result.next()){
                 var contact =new Contact();
-                contact.setId(result.getInt("id_contact"));
+                contact.setId(result.getInt("id_contato"));
                 contact.setNome(result.getString("nome"));
                 contact.setEmail(result.getString("email"));
 
@@ -50,6 +50,19 @@ public class ContactDao {
             e.printStackTrace();
         }
         return allContacts;
+
+        }
+        public void exclude(Integer id){
+        try {
+            var connection= connect();
+            var ps = connection.prepareStatement("delete from contats where id_contato= ?");
+            ps.setInt(1,id);
+            ps.execute();
+            ps.close();
+            connection.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         }
 }

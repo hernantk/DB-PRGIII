@@ -7,22 +7,24 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h1>Contacts</h1>
-    <h:dataTable value="#{listContactsBean.allContacts}" var="contact">
-        <h:column>
-            <f:facet name="header">Name</f:facet>
-            <h:outputText value="#{contact.nome}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">Email</f:facet>
-            <h:outputText value="#{contact.email}"/>
-        </h:column>
-
-    </h:dataTable>
     <h:form>
+        <h:dataTable value="#{listContactsBean.allContacts}" var="contact" width="80%" border="1">
+
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                <h:outputText value="#{contact.nome}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                <h:outputText value="#{contact.email}"/>
+            </h:column>
+
+        </h:dataTable>
+
 
         <h:commandButton id="TelaCadastro" value="Tela Cadastro:" action="telaCadastro"/>
         <br/>
-
 
     </h:form>
 

@@ -6,9 +6,22 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:outputLabel value="Hello, world"/>
+    <h1>Cadastro Contato</h1>
+
+
     <h:form>
-        <h:commandButton action="#{listContactsBean.listContactsUseCase.execute}"/>
+        <h:panelGrid columns="2">
+            <div>
+                Nome: <br/>
+                <h:inputText value="#{newContactBean.contact.nome}"/>
+            </div>
+            <div>
+                Email:<br/>
+                <h:inputText value="#{newContactBean.contact.email}"/>
+            </div>
+
+        </h:panelGrid>
+        <h:commandButton value="Salvar" action="#{newContactBean.save}"/>
     </h:form>
 </f:view>
 </html>
