@@ -21,6 +21,8 @@ public class ListContactsBean {
     private DeleteContactUseCase deleteUseCase= new DeleteContactUseCase();
 
 
+
+
     @Getter @Setter
     private List<Contact> allContacts;
 
@@ -34,6 +36,7 @@ public class ListContactsBean {
         iniciate();
     }
 
+    }
 
 
 
@@ -43,4 +46,5 @@ public class ListContactsBean {
 
 
 
-}
+
+
